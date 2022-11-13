@@ -36,7 +36,7 @@ public class Ambiente {
 	}
 
 	public Ambiente() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Long getId() {
