@@ -40,6 +40,13 @@ public class RegionalController {
 		return "cadastrarRegional";
 	}
 	
+	@GetMapping("/deleteRegional/{id}")
+	public String deleteRegional(@PathVariable("id") Long id) {
+		
+		repo.deleteById(id);
+		return "redirect:/regional";
+	}
+	
 	@GetMapping("/updateRegionalPage/{id}")
 	public String showUpdateRegionalPage(@PathVariable("id") Long id, Model model) {
 		Optional<Regional> temp=repo.findById(id);
@@ -48,10 +55,5 @@ public class RegionalController {
 		return "atualizarRegional";
 	}
 	
-	@GetMapping("/deleteRegional/{id}")
-	public String deleteRegional(@PathVariable("id") Long id) {
-		
-		repo.deleteById(id);
-		return "redirect:/regional";
-	}
+
 }

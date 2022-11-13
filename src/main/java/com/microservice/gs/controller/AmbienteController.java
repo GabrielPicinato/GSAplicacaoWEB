@@ -21,17 +21,21 @@ public class AmbienteController {
 	@Autowired
 	private AmbienteRepository repo;
 	
+	
 	@GetMapping("/ambiente")
 	public String paginaAmbiente(Model model) {
 		model.addAttribute("ambientelista", repo.findAll());
 		return "ambiente";
+		
 	}
+	
 	
 	@GetMapping("/salvarAmbiente")
 	public String salvarAmbiente(Model model) {
 		Ambiente ambiente = new Ambiente();
 		model.addAttribute("ambiente", ambiente);
 		return "cadastrarAmbiente";
+		
 	}
 	
 	@PostMapping("/salvarAmbiente")
@@ -39,6 +43,7 @@ public class AmbienteController {
 		repo.save(ambiente);
 		return "cadastrarAmbiente";
 	}
+	
 	
 	@GetMapping("/updateAmbientePage/{id}")
 	public String atualizarAmbiente(@PathVariable("id") Long id, Model model) {
