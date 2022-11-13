@@ -27,6 +27,12 @@ public class VeiculoController {
 		return "homepage";
 	}
 	
+	@PostMapping("/salvarVeiculo")
+	public String salvarVeiculo(@ModelAttribute("veiculo") Veiculo veiculo) {
+		repo.save(veiculo);
+		return "cadastrarVeiculo";
+	} 
+	
 	@GetMapping("/salvarVeiculo")
 	public String salvarVeiculo(Model model) {
 		Veiculo veiculo = new Veiculo();
@@ -34,11 +40,6 @@ public class VeiculoController {
 		return "cadastrarVeiculo";
 	}
 	
-	@PostMapping("/salvarVeiculo")
-	public String salvarVeiculo(@ModelAttribute("veiculo") Veiculo veiculo) {
-		repo.save(veiculo);
-		return "cadastrarVeiculo";
-	} 
 	
 	@GetMapping("/updateVeiculoPage/{id}")
 	public String showUpdateVeiculoPage(@PathVariable("id") Long id, Model model) {
